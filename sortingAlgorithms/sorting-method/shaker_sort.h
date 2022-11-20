@@ -1,5 +1,7 @@
-#ifndef shakerSort
-#define shakerSort
+#ifndef shaker_sort
+#define shaker_sort
+
+#include "base.h"
 
 void ShakerSort(int*, int);
 void ShakerSort(int*, int, int&);
