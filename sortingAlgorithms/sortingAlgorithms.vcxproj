@@ -132,12 +132,20 @@
   <ItemGroup>
     <ClInclude Include="allFunction.h" />
     <ClInclude Include="base.h" />
+    <ClInclude Include="controler\base.h" />
     <ClInclude Include="heap_sort.h" />
     <ClInclude Include="insertion_sort.h" />
     <ClInclude Include="merge_sort.h" />
     <ClInclude Include="selection_sort.h" />
     <ClInclude Include="shaker_sort.h" />
     <ClInclude Include="shell_sort.h" />
+    <ClInclude Include="sorting-method\allFunction.h" />
+    <ClInclude Include="sorting-method\heap_sort.h" />
+    <ClInclude Include="sorting-method\insertion_sort.h" />
+    <ClInclude Include="sorting-method\merge_sort.h" />
+    <ClInclude Include="sorting-method\selection_sort.h" />
+    <ClInclude Include="sorting-method\shaker_sort.h" />
+    <ClInclude Include="sorting-method\shell_sort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
