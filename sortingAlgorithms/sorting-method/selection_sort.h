@@ -30,11 +30,11 @@ double MeasureRuningTime_selectionSort(int* a, int n)
 	return time_use;
 }
 
-long comparisons = 0;
+
 // seclection sort
 long countComparisonsSelectionSort(int* a, int n)
 {
-	comparisons = 0;
+	long comparisons = 0;
 	for (int i = 0; i < n; i++) {
 		int min_index = i;
 		for (int j = i + 1; j < n; j++) {

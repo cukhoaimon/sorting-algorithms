@@ -44,7 +44,7 @@ void HeapSort(int* a, int n)
 	}
 }
 
-double MeasureRuningTime_heapSort(int* a, int n)
+int64_t MeasureRuningTime_heapSort(int* a, int n)
 {
 	Timer t;
 	t.start();

@@ -24,7 +24,7 @@ void InsertionSort(int* a, int n)
 		a[pos + 1] = x;
 	}
 }
-double MeasureRuningTime_insertionSort(int* a, int n)
+int64_t MeasureRuningTime_insertionSort(int* a, int n)
 {
 	Timer t;
 	t.start();

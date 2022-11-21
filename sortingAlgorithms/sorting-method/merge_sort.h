@@ -48,21 +48,26 @@ void merge(int* a, int left, int mid, int right)
 	delete[] L;
 	delete[] R;
 }
-void MergeSort(int* a, int left, int right)
+void _MergeSort(int* a, int left, int right)
 {
 	if (left >= right) return;
 	int mid = left + (right - left) / 2;
-	MergeSort(a, left, mid);
-	MergeSort(a, mid+1, right);
+	_MergeSort(a, left, mid);
+	_MergeSort(a, mid+1, right);
 	merge(a, left, mid, right);
-
 }
-double MeasureRuningTime_mergeSort(int* a, int n)
+
+void MergeSort(int* a, int n)
+{
+	_MergeSort(a, 0, n - 1);
+}
+
+int64_t MeasureRuningTime_mergeSort(int* a, int n)
 {
 	Timer t;
 	t.start();
 
-	MergeSort(a, 0, n-1); 
+	MergeSort(a, n); 
 	
 	auto duration = t.duration();
 	return duration;

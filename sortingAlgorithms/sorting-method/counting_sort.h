@@ -1,7 +1,7 @@
 #ifndef counting_sort
 #define counting_sort
 
-#include "base.h"
+#include "../controller/base.h"
 
 void CountingSort(int*, int);
 void CountingSort(int*, int, int&);

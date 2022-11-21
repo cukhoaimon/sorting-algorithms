@@ -1,10 +1,10 @@
 #pragma once
-
 #include "../controller/base.h"
+
 
 int gaps[] = { 1750, 701, 301, 132, 57, 23, 10, 4, 1 };
 
-void shell_sort(int a[], int n) {
+void ShellSort(int a[], int n) {
     for (int gap : gaps) {
         for (int i = gap; i < n; ++i) {
             int cur = a[i];
