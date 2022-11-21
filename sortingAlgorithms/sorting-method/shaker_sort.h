@@ -1,8 +1,5 @@
-#ifndef shakerSort
-#define shakerSort
-
-void ShakerSort(int*, int);
-void ShakerSort(int*, int, int&);
+#pragma once
+#include "../controler/base.h"
 
 void ShakerSort(int* a, int n) {
     int left = 0, right = n - 1;
@@ -35,4 +32,3 @@ void ShakerSort(int* a, int n, int& cmp) {
     }
 }
 
-#endif

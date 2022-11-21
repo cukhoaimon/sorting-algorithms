@@ -1,5 +1,6 @@
 #pragma once
-#include "base.h"
+
+#include "../controler/base.h"
 
 int gaps[] = { 1750, 701, 301, 132, 57, 23, 10, 4, 1 };
 

@@ -1,3 +1,6 @@
+#pragma once
+#include "../controler/base.h"
+
 /**
  * Merge Sort
  * Average complexity: O(nlogn)
@@ -56,13 +59,13 @@ void MergeSort(int* a, int left, int right)
 }
 double MeasureRuningTime_mergeSort(int* a, int n)
 {
-	clock_t start, end;
-	double time_use;
-	start = clock();
+	Timer t;
+	t.start();
+
 	MergeSort(a, 0, n-1); 
-	end = clock();
-	time_use = end - start;
-	return time_use;
+	
+	auto duration = t.duration();
+	return duration;
 }
 
 long comparisons = 0;

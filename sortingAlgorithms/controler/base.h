@@ -10,7 +10,6 @@
 
 using namespace std;
 
-
 class Timer 
 {
 private:
@@ -33,7 +32,6 @@ public:
 		auto runtime = chrono::duration_cast<chrono::milliseconds>(now - this->start_time).count();
 		return runtime;
 	}
-	
 };
 
 int getRandom(int l, int r)

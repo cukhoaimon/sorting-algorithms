@@ -20,31 +20,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="base.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="allFunction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="heap_sort.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="insertion_sort.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="merge_sort.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="selection_sort.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="shaker_sort.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="shell_sort.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sorting-method\allFunction.h">
+    <ClInclude Include="sorting-method\all.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sorting-method\heap_sort.h">

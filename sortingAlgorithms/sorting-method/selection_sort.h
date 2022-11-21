@@ -1,3 +1,6 @@
+#pragma once
+#include "../controler/base.h"
+
 /**
  * Section Sort
  * Average complexity: O(n^2)
