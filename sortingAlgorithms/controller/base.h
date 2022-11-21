@@ -65,6 +65,10 @@ void readInput(char* filename, int*& data, int& n)
     ifstream filein;
     filein.open(filename);
     filein >> n;
+
+	if (data != nullptr)
+		delete[] data;
+
     data = new int[n];
     int index = 0;
     while (index != n)
@@ -75,5 +79,11 @@ void readInput(char* filename, int*& data, int& n)
 }
 
 
+void copyArray(int* a, int n, int*& b)
+{
+	b = new int[n];
+	for (int i = 0; i < n; i++)
+		b[i] = a[i];
+}
 
 #endif // !base_h

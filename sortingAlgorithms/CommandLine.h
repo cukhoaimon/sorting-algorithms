@@ -4,6 +4,20 @@
 #include "./controller/base.h"
 #include "./controller/GenerateData.h"
 #include "Experiment.h"
+                        
+void RunningSort(int* data, int n, int algo, int64_t& time, int64_t& compare)
+{
+    Timer t;
+    t.start();
+    sortMethod[algo](data, n);
+    time = t.getRunTime();
+
+    int* cpy = nullptr;
+    copyArray(data, n, cpy);
+
+    compare = 0;
+    CountSortMethod[algo](cpy, n, compare);
+}
 
 void command(int argc, char* argv[])
 {
@@ -122,8 +136,8 @@ void command(int argc, char* argv[])
     else
     {
         int algo1, algo2;
-        double time1, time2;
-        long long compare1 = 0, compare2 = 0;
+        int64_t time1, time2;
+        int64_t compare1 = 0, compare2 = 0;
         for (int i = 0; i < 11; i++)
         {
             if (argv[2] == sort_names[i])
@@ -153,7 +167,12 @@ void command(int argc, char* argv[])
         {
             cout << algo1 << " " << algo2 << endl;
             n = atoi(argv[4]);
+
+            // init data
+            if (data != nullptr)
+                delete[] data;
             data = new int[n];
+
             if (strcmp(argv[5], "-sorted") == 0)
             {
                 GenerateSortedData(data, n);
@@ -166,7 +185,7 @@ void command(int argc, char* argv[])
             {
                 GenerateRandomData(data, n);
             }
-            else if (strcmp(argv[5], "-rev") == 0)
+            else // rev case
             {
                 GenerateReverseData(data, n);
             }
@@ -177,8 +196,8 @@ void command(int argc, char* argv[])
             RunningSort(data, n, algo1, time1, compare1);
             RunningSort(data2, n, algo2, time2, compare2);
             // Show info
-            cout << "Running time: " << time1 << "      |      " << time2 << endl;
-            cout << "Comparisions: " << compare1 << "      |      " << compare2 << endl;
+            cout << "Running time: " << time1 << "\t|\t" << time2 << endl;
+            cout << "Comparisions: " << compare1 << "\t|\t" << compare2 << endl;
             delete[] data2;
         }
     }

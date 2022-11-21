@@ -38,7 +38,7 @@ void RadixSort(int array[], int size)
 }
 
 
-int getMaxCompare(int array[], int n, long long &compare)
+int _getMaxCompare(int array[], int n, long long &compare)
 {
     int max = array[0];
     for (int i = 1; ++compare, i < n; i++)
@@ -47,7 +47,7 @@ int getMaxCompare(int array[], int n, long long &compare)
     return max;
 }
 
-void countingSortCompare(int array[], int size, int place, long long &compare)
+void _countingSortCompare(int array[], int size, int place, long long &compare)
 {
     const int max = 10;
     int *output = new int[size];
@@ -78,7 +78,7 @@ void countingSortCompare(int array[], int size, int place, long long &compare)
 
 void CompareCount_RadixSort(int array[], int size, int64_t &compare)
 {
-    int max = getMaxCompare(array, size, compare);
+    int max = _getMaxCompare(array, size, compare);
     for (int place = 1; ++compare, max / place > 0; place *= 10)
-        countingSortCompare(array, size, place, compare);
+        _countingSortCompare(array, size, place, compare);
 }
