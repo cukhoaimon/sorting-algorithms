@@ -1,5 +1,5 @@
 ﻿#include "./sorting-method/all.h"
-#include "./controler/base.h"
+#include "./controller/base.h"
 
 
 typedef void (*sortPtr)(int*, int);

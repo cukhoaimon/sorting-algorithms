@@ -1,5 +1,5 @@
 #pragma once
-#include "../controler/base.h"
+#include "../controller/base.h"
 
 /**
  * Heap Sort
