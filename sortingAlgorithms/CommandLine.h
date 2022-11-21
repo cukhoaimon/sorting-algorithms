@@ -17,6 +17,8 @@ void RunningSort(int* data, int n, int algo, int64_t& time, int64_t& compare)
 
     compare = 0;
     CountSortMethod[algo](cpy, n, compare);
+
+    delete[] cpy;
 }
 
 void command(int argc, char* argv[])
@@ -190,9 +192,9 @@ void command(int argc, char* argv[])
                 GenerateReverseData(data, n);
             }
             // Running Time  vs Compare Time
-            int* data2 = new int[n];
-            for (int i = 0; i < n; i++)
-                data2[i] = data[i];
+            int* data2 = nullptr;
+            copyArray(data, n, data2);
+
             RunningSort(data, n, algo1, time1, compare1);
             RunningSort(data2, n, algo2, time2, compare2);
             // Show info
