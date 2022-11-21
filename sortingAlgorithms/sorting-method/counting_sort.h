@@ -1,10 +1,6 @@
-#ifndef counting_sort
-#define counting_sort
-
+#pragma once
 #include "../controller/base.h"
 
-void CountingSort(int*, int);
-void CountingSort(int*, int, int&);
 
 void CountingSort(int* a, int n) {
     int max = a[0];
@@ -23,14 +19,17 @@ void CountingSort(int* a, int n) {
     }
     delete[] count;
 }
-void CountingSort(int* a, int n, int& cmp) {
+
+void CompareCount_CountingSort(int* a, int n, int64_t &cmp) {
     int max = a[0];
     for (int i = 0;++cmp, i < n; i++)
         if (++cmp, max < a[i])
             max = a[i];
+
     int* count = new int[max + 1]();
     for (int i = 0;++cmp, i < n; i++)
         count[a[i]]++;
+
     int j = 0;
     for (int i = 0;++cmp, i <= max; i++) {
         for (;++cmp, count[i] > 0; count[i]--) {
@@ -40,5 +39,3 @@ void CountingSort(int* a, int n, int& cmp) {
     }
     delete[] count;
 }
-
-#endif

@@ -1,11 +1,12 @@
 #pragma once 
 #include "../controller/base.h"
 
+
 void countingSort(int array[], int size, int place)
 {
     const int max = 10;
-    int output[size];
-    int count[max];
+    int *output = new int[size];
+    int *count = new int[max];
 
     for (int i = 0; i < max; ++i)
         count[i] = 0;
@@ -24,7 +25,18 @@ void countingSort(int array[], int size, int place)
 
     for (int i = 0; i < size; i++)
         array[i] = output[i];
+
+    delete[] output;
+    delete[] count;
 }
+
+void RadixSort(int array[], int size)
+{
+    int max = getMax(array, size);
+    for (int place = 1; max / place > 0; place *= 10)
+        countingSort(array, size, place);
+}
+
 
 int getMaxCompare(int array[], int n, long long &compare)
 {
@@ -38,8 +50,8 @@ int getMaxCompare(int array[], int n, long long &compare)
 void countingSortCompare(int array[], int size, int place, long long &compare)
 {
     const int max = 10;
-    int output[size];
-    int count[max];
+    int *output = new int[size];
+    int *count = new int[max];
 
     for (int i = 0; ++compare, i < max; ++i)
         count[i] = 0;
@@ -58,16 +70,13 @@ void countingSortCompare(int array[], int size, int place, long long &compare)
 
     for (int i = 0; ++compare, i < size; i++)
         array[i] = output[i];
+
+    delete[] output;
+    delete[] count;
 }
 
-void radixSort(int array[], int size)
-{
-    int max = getMax(array, size);
-    for (int place = 1; max / place > 0; place *= 10)
-        countingSort(array, size, place);
-}
 
-void radixSortComapare(int array[], int size, long long &compare)
+void CompareCount_RadixSort(int array[], int size, int64_t &compare)
 {
     int max = getMaxCompare(array, size, compare);
     for (int place = 1; ++compare, max / place > 0; place *= 10)

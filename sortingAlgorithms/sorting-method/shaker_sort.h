@@ -1,17 +1,17 @@
 #pragma once
 #include "../controller/base.h"
 
-void ShakerSort(int*, int);
-void ShakerSort(int*, int, int&);
-
-void ShakerSort(int* a, int n) {
+void ShakerSort(int* a, int n) 
+{
     int left = 0, right = n - 1;
-    while (left < right) {
+    while (left < right) 
+    {
         for (int i = left; i < right; i++) {
             if (a[i] > a[i + 1])
                 swap(a[i], a[i + 1]);
         }
         right--;
+
         for (int i = right - 1; i >= left; i--) {
             if (a[i] > a[i + 1])
                 swap(a[i], a[i + 1]);
@@ -19,7 +19,8 @@ void ShakerSort(int* a, int n) {
         left++;
     }
 }
-void ShakerSort(int* a, int n, int& cmp) {
+
+void CompareCount_ShakerSort(int* a, int n, int64_t &cmp) {
     int left = 0, right = n - 1;
     while (++cmp, left < right) {
         for (int i = left; ++cmp, i < right; i++) {

@@ -26,7 +26,7 @@ public:
 	}
 
 	// tra ve thoi gian chay, don vi la milisecond
-	int64_t duration()
+	int64_t getRunTime()
 	{
 		auto now = chrono::high_resolution_clock::now();
 		auto runtime = chrono::duration_cast<chrono::milliseconds>(now - this->start_time).count();
@@ -59,6 +59,21 @@ int getMax(int array[], int n)
 			max = array[i];
 	return max;
 }
+
+void readInput(char* filename, int*& data, int& n)
+{
+    ifstream filein;
+    filein.open(filename);
+    filein >> n;
+    data = new int[n];
+    int index = 0;
+    while (index != n)
+    {
+        filein >> data[index++];
+    }
+    filein.close();
+}
+
 
 
 #endif // !base_h

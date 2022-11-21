@@ -24,21 +24,10 @@ void InsertionSort(int* a, int n)
 		a[pos + 1] = x;
 	}
 }
-int64_t MeasureRuningTime_insertionSort(int* a, int n)
-{
-	Timer t;
-	t.start();
-	InsertionSort(a, n); 
-	
-	auto duration = t.duration();
-	return duration;
-}
 
 // insertion sort
-int64_t countComparisonsInsertionSort(int* a, int n)
-{
-	int64_t comparisons = 0;
-
+void CompareCount_InsertionSort(int* a, int n, int64_t& comparisons)
+{	
 	for (int i = 1; comparisons++, i < n; i++) 
 	{
 		int x = a[i];
@@ -52,6 +41,4 @@ int64_t countComparisonsInsertionSort(int* a, int n)
 	
 		a[pos + 1] = x;
 	}
-
-	return comparisons;
 }

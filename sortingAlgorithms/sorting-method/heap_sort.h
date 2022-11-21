@@ -1,15 +1,6 @@
 #pragma once
 #include "../controller/base.h"
 
-/**
- * Heap Sort
- * Average complexity: O(nlogn)
- * Best Case: O(nlogn)
- * Worst Case: O(nlogn)
- * Space: O(1)
- * Not Stable
- */ 
-// heap sort 
 void heapify(int* a, int n, int i)
 {
 	int largest = i;
@@ -44,17 +35,7 @@ void HeapSort(int* a, int n)
 	}
 }
 
-int64_t MeasureRuningTime_heapSort(int* a, int n)
-{
-	Timer t;
-	t.start();
-	HeapSort(a, n); 
-	auto duration = t.duration();
-	
-	return duration;
-}
-
-void _heapify(int* a, int n, int i, int & comparisons)
+void _heapify(int* a, int n, int i, int64_t&comparisons)
 {
 	int largest = i;
 	int left = 2 * i + 1;
@@ -77,9 +58,8 @@ void _heapify(int* a, int n, int i, int & comparisons)
 
 }
 
-long countComparisonsHeapSort(int* a, int n)
+void CompareCount_HeapSort(int* a, int n, int64_t& comparisons)
 {
-	int comparisons = 0;
 	for (int i = n / 2 - 1; comparisons++, i >= 0; i--) {
 		_heapify(a, n, i, comparisons);
 	}
@@ -89,6 +69,4 @@ long countComparisonsHeapSort(int* a, int n)
 		n--;
 		_heapify(a, n, 0, comparisons);
 	}
-
-	return comparisons;
 }

@@ -30,7 +30,7 @@ void QuickSort(int* a, int n)
     QuickSort(a, 0, n - 1);
 }
 
-void QuickSortCount(int a[], int left, int right, long long &count)
+void CompareCount_QuickSort(int a[], int left, int right, int64_t &count)
 {
     int i = left, j = right;
     int pivot = a[(left + right) / 2];
@@ -49,7 +49,12 @@ void QuickSortCount(int a[], int left, int right, long long &count)
         }
     }
     if (++count, left < j)
-        QuickSortCount(a, left, j, count);
+        CompareCount_QuickSort(a, left, j, count);
     if (++count, i < right)
-        QuickSortCount(a, i, right, count);
+        CompareCount_QuickSort(a, i, right, count);
+}
+
+void CompareCount_QuickSort(int* a, int n, int64_t&count)
+{
+    CompareCount_QuickSort(a, 0, n - 1, count);
 }

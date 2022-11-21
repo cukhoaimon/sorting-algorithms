@@ -130,11 +130,13 @@
     <ClCompile Include="sortingAlgorithms.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CommandLine.h" />
     <ClInclude Include="controller\base.h" />
+    <ClInclude Include="Experiment.h" />
     <ClInclude Include="GenerateData.h" />
-    <ClInclude Include="radixsortcuatao.h" />
     <ClInclude Include="sorting-method\all.h" />
     <ClInclude Include="sorting-method\bubble_sort.h" />
+    <ClInclude Include="sorting-method\counting_sort.h" />
     <ClInclude Include="sorting-method\flash_sort.h" />
     <ClInclude Include="sorting-method\heap_sort.h" />
     <ClInclude Include="sorting-method\insertion_sort.h" />
