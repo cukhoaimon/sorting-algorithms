@@ -94,6 +94,9 @@ void command2(int argc, char* argv[])
     // Running Sort
     RunningSort(data, n, algo, time, compare);
     
+    // writedown sorted array
+    writeData("output.txt", data, n);
+
     // Show info about sort algorithm
     showSortInfor(argv[5], time, compare);
 
@@ -116,8 +119,10 @@ void command3(int argc, char* argv[])
     for (int i = 0; i < 4; i++)
     {
         GenerateData(data, n, i);
+      
         string number = to_string(i + 1);
         string filename = "input_" + number + ".txt";
+      
         writeData(filename,data, n);
         RunningSort(data, n, algo, time, compare);
         // Show info about algo
@@ -185,6 +190,8 @@ void command5(int argc, char* argv[])
     data = new int[n];
 
     grandData(data, n, argv[5]);
+    writeData("input.txt", data, n);
+
     // Running Time  vs Compare Time
     int* data2 = nullptr;
     copyArray(data, n, data2);
