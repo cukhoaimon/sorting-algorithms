@@ -77,6 +77,13 @@ string getFileType(string name)
         return "reversed";
 }
 
+int getSortIndex(string argv)
+{
+    for (int i = 0; i < 11; i++)
+        if (argv == sort_names[i])
+            return i;
+}
+
 string getDataRange(string range)
 {
     return  range.replace(range.find("K"), 3, "000");
