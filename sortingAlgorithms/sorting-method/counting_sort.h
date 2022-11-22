@@ -26,7 +26,7 @@ void CompareCount_CountingSort(int* a, int n, int64_t &cmp) {
         if (++cmp, max < a[i])
             max = a[i];
 
-    int* count = new int[max + 1]();
+    int* count = new int[max + 1]{0};
     for (int i = 0;++cmp, i < n; i++)
         count[a[i]]++;
 
