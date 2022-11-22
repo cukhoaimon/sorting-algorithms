@@ -65,18 +65,19 @@ void GenerateData(int a[], int n, int dataType)
 		cout << "Input order: Randomize" << endl;
 		GenerateRandomData(a, n);
 		break;
-	case 1:	// có thứ tự
-		cout << "Input order: Sorted" << endl;
-		GenerateSortedData(a, n);
-		break;
-	case 2:	// có thứ tự ngược
-		cout << "Input order: Reverse" << endl;
-		GenerateReverseData(a, n);
-		break;
-	case 3:	// gần như có thứ tự
+	case 1:	// gần như có thứ tự
 		cout << "Input order: Nearly sorted" << endl;
 		GenerateNearlySortedData(a, n);
 		break;
+	case 2:	// có thứ tự
+		cout << "Input order: Sorted" << endl;
+		GenerateSortedData(a, n);
+		break;
+	case 3:	// có thứ tự ngược
+		cout << "Input order: Reverse" << endl;
+		GenerateReverseData(a, n);
+		break;
+	
 	default:
 		printf("Error: unknown data type!\n");
 	}

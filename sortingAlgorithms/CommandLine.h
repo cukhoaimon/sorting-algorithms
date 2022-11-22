@@ -23,6 +23,15 @@ void RunningSort(int* data, int n, int algo, int64_t& time, int64_t& compare)
 }
 
 
+void writeData(string filename, int* a, int n) {
+    ofstream file;
+    file.open(filename);
+    file << n << endl;
+    for (int i = 0; i < n; i++) file << a[i] << " ";
+    file.close();
+ 
+}
+
 void grandData(int* data, int n, char* argv)
 {
     if (strcmp(argv, "-sorted") == 0)
@@ -43,6 +52,7 @@ void grandData(int* data, int n, char* argv)
     }
 }
 
+ 
 
 void command1(int argc, char* argv[])
 {
@@ -61,7 +71,7 @@ void command1(int argc, char* argv[])
     RunningSort(data, n, algo, time, compare);
     // Show infomation about sort algo
     showSortInfor(argv[4], time, compare);
-
+    writeData("output.txt", data, n);
     delete[] data;
 }
 
@@ -80,7 +90,7 @@ void command2(int argc, char* argv[])
     
     // Getting data
     grandData(data, n, argv[4]);
-
+    writeData("input.txt", data, n);
     // Running Sort
     RunningSort(data, n, algo, time, compare);
     
@@ -106,7 +116,9 @@ void command3(int argc, char* argv[])
     for (int i = 0; i < 4; i++)
     {
         GenerateData(data, n, i);
-        
+        string number = to_string(i + 1);
+        string filename = "input_" + number + ".txt";
+        writeData(filename,data, n);
         RunningSort(data, n, algo, time, compare);
         // Show info about algo
         showSortInfor(argv[4], time, compare);
