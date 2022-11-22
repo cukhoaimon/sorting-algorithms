@@ -36,17 +36,17 @@ CountSortPtr CountSortMethod[] = {
 
 
 string const sort_names[] = {
-    "Selection-Sort",
-    "Insertion-Sort",
-    "bubble-Sort",
-    "Heap-Sort",
-    "Merge-Sort",
-    "Quick-Sort",
-    "Radix-Sort",
-    "Shaker-Sort",
-    "Shell-Sort",
-    "Counting-Sort",
-    "Flash-Sort"
+    "selection-sort",
+    "insertion-sort",
+    "bubble-sort",
+    "heap-sort",
+    "merge-sort",
+    "quick-sort",
+    "radix-sort",
+    "shaker-sort",
+    "shell-sort",
+    "counting-sort",
+    "flash-sort"
 };
 
 string const data_range[] = {

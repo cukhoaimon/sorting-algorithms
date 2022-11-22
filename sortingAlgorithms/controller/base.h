@@ -89,7 +89,6 @@ void copyArray(int* a, int n, int*& b)
 
 void showSortInfor(char* inf, int64_t time, int64_t compare)
 {
-	cout << "\n" << inf << endl;
 	if (strcmp(inf, "-both") == 0)
 	{
 		cout << "Running time: " << time << endl;
