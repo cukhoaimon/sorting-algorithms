@@ -29,7 +29,7 @@ public:
 	int64_t getRunTime()
 	{
 		auto now = chrono::high_resolution_clock::now();
-		auto runtime = chrono::duration_cast<chrono::milliseconds>(now - this->start_time).count();
+		auto runtime = chrono::duration_cast<chrono::nanoseconds>(now - this->start_time).count();
 		return runtime;
 	}
 };
@@ -89,14 +89,15 @@ void copyArray(int* a, int n, int*& b)
 
 void showSortInfor(char* inf, int64_t time, int64_t compare)
 {
+	auto tm = time * 1.0 * pow(10, -6);
 	if (strcmp(inf, "-both") == 0)
 	{
-		cout << "Running time: " << time << endl;
+		cout << "Running time: " << tm << endl;
 		cout << "Comparisions: " << compare << endl;
 	}
 	else if (strcmp(inf, "-time") == 0)
 	{
-		cout << "Running time: " << time << endl;
+		cout << "Running time: " << tm << endl;
 	}
 	else if (strcmp(inf, "-comp") == 0)
 	{

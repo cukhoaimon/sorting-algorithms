@@ -91,7 +91,7 @@ string getDataRange(string range)
 
 void Experiment()
 {
-    freopen("output.csv", "w", stdout);
+    freopen("output1.csv", "w", stdout);
     cout << "sort_name" << ","
         << "data_type" << ","
         << "data_range" << ","
@@ -126,7 +126,7 @@ void Experiment()
                 Timer t;
                 t.start();
                 sortMethod[i](arr, n);
-                auto sort_time = t.getRunTime();
+                auto sort_time = t.getRunTime() * 1.0 / 1000000;
                 
                 string cur_data_type = getFileType(name);
 
@@ -143,3 +143,5 @@ void Experiment()
         }
     }
 }
+
+

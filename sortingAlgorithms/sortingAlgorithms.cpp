@@ -9,8 +9,8 @@ int main(int argc, char* argv[])
 {
     /*
     Thoi gian chay tong cong: 2h46p    
-    Experiment();
     */   
+    //Experiment();
 
     command(argc, argv);
 }
