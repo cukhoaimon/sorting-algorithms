@@ -145,3 +145,64 @@ void Experiment()
 }
 
 
+
+void customExperiment()
+{
+    freopen("reversed.csv", "w", stdout);
+
+    cout << "sort_name" << ","
+        << "data_type" << ","
+        << "data_range" << ","
+        << "sort_time(miliseconds)" << ","
+        << "compare" << endl;
+
+    string path = "data/input";
+    // each data range
+    for (string range : data_range)
+    {
+        // each type of data
+        string name = "input_4.txt";
+        {
+            string directory = path + "/" + range + "/" + name;
+            ifstream f;
+            f.open(directory);
+
+            if (!f.is_open())
+            {
+                cout << "Sai roi lam lai di.";
+            }
+            int* arr = nullptr, n = 0;
+
+            f >> n;
+            arr = new int[n];
+            for (int i = 0; i < n; i++)
+                f >> arr[i];
+
+            // each sort type
+            for (int i = 0; i < 11; i++)
+            {
+                if (i == 0 || i == 1 || i == 8)
+                {
+                    Timer t;
+                    t.start();
+                    sortMethod[i](arr, n);
+                    auto sort_time = t.getRunTime() * 1.0 / 1000000;
+
+                    string cur_data_type = getFileType(name);
+
+                    int64_t compare = 0;
+                    CountSortMethod[i](arr, n, compare);
+                    cout << sort_names[i] << ","
+                        << cur_data_type << ","
+                        << getDataRange(range) << ","
+                        << sort_time << ","
+                        << compare << endl;
+                }
+            }
+
+            delete[] arr;
+        }
+    }
+}
+
+

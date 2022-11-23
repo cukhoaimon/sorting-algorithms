@@ -12,6 +12,8 @@ int main(int argc, char* argv[])
     */   
     //Experiment();
 
-    command(argc, argv);
+    //command(argc, argv);
+    customExperiment();
+
 }
 
