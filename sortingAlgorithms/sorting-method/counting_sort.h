@@ -22,16 +22,16 @@ void CountingSort(int* a, int n) {
 
 void CompareCount_CountingSort(int* a, int n, int64_t &cmp) {
     int max = a[0];
-    for (int i = 0;++cmp, i < n; i++)
+    for (int i = 0; ++cmp, i < n; i++)
         if (++cmp, max < a[i])
             max = a[i];
 
     int* count = new int[max + 1]{0};
-    for (int i = 0;++cmp, i < n; i++)
+    for (int i = 0; ++cmp, i < n; i++)
         count[a[i]]++;
 
     int j = 0;
-    for (int i = 0;++cmp, i <= max; i++) {
+    for (int i = 0; ++cmp, i <= max; i++) {
         for (;++cmp, count[i] > 0; count[i]--) {
             a[j] = i;
             j++;
