@@ -49,6 +49,7 @@ void merge(int* a, int left, int mid, int right)
 	delete[] R;
 }
 
+
 void _MergeSort(int* a, int left, int right)
 {
 	if (left >= right) 
@@ -61,10 +62,12 @@ void _MergeSort(int* a, int left, int right)
 	merge(a, left, mid, right);
 }
 
+
 void MergeSort(int* a, int n)
 {
 	_MergeSort(a, 0, n - 1);
 }
+
 
 void CompareCount_merge(int* a, int left, int mid, int right, int64_t &comparisons)
 {
@@ -106,6 +109,8 @@ void CompareCount_merge(int* a, int left, int mid, int right, int64_t &compariso
 		i++; iR++;
 	}
 }
+
+
 void CompareCount_MergeSort(int* a, int left, int right, int64_t &comparisons)
 {
 	if (left >= right) 
@@ -116,6 +121,7 @@ void CompareCount_MergeSort(int* a, int left, int right, int64_t &comparisons)
 	CompareCount_MergeSort(a, mid+1, right, comparisons);
 	CompareCount_merge(a, left, mid, right, comparisons);
 }
+
 
 void CompareCount_MergeSort(int* a, int n, int64_t& comparisons)
 {

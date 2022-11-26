@@ -49,32 +49,32 @@ string const sort_names[] = {
     "flash-sort"
 };
 
-string const data_range[] = {
-    "10K",
-    "30K",
-    "50K",
-    "100K",
-    "300K",
-    "500K"
+int const data_range[] = {
+    10000,
+    30000,
+    50000,
+    100000,
+    300000,
+    500000
 };
 
 string const file_name[] = {
-    "input_1.txt",
-    "input_2.txt",
-    "input_3.txt",
-    "input_4.txt"
+    "input_1.txt", // random
+    "input_2.txt", // nealy sorted
+    "input_3.txt", // sorted
+    "input_4.txt"  // reversed
 };
 
-string getFileType(string name)
+string getFileType(int type)
 {
-    if (name == file_name[0])
-        return "random";
-    else if (name == file_name[1])
-        return "nearly-sorted";
-    else if (name == file_name[2])
-        return "sorted";
-    else
-        return "reversed";
+    switch (type)
+    {
+        case 0: return "random";
+        case 1: return "nearly-sorted";
+        case 2: return "sorted";
+        case 3: return "reversed";
+        default: return "unknow";
+    }
 }
 
 int getSortIndex(string argv)
@@ -84,41 +84,29 @@ int getSortIndex(string argv)
             return i;
 }
 
-string getDataRange(string range)
-{
-    return  range.replace(range.find("K"), 3, "000");
-}
 
 void Experiment()
 {
-    freopen("output1.csv", "w", stdout);
+    cout << "Program is running..." << endl;
+    freopen("output.csv", "w", stdout);
+    
+    // write header
     cout << "sort_name" << ","
         << "data_type" << ","
         << "data_range" << ","
-        << "sort_time(miliseconds)" << ","
+        << "sort_time" << ","
         << "compare" << endl;
 
-    string path = "data/input";
     // each data range
-    for (string range : data_range)
+    for (int range : data_range)
     {
         // each type of data
-        for (string name : file_name)
+        for (int type = 0; type < 4; type++)
         {
-            string directory = path + "/" + range + "/" + name;
-            ifstream f;
-            f.open(directory);
+            int* arr = nullptr, n = range;
 
-            if (!f.is_open())
-            {
-                cout << "Sai roi lam lai di.";
-            }
-            int* arr = nullptr, n = 0;
-
-            f >> n;
             arr = new int[n];
-            for (int i = 0; i < n; i++)
-                f >> arr[i];
+            GenerateData(arr, n, type);
 
             // each sort type
             for (int i = 0; i < 11; i++)
@@ -128,13 +116,14 @@ void Experiment()
                 sortMethod[i](arr, n);
                 auto sort_time = t.getRunTime() * 1.0 / 1000000;
                 
-                string cur_data_type = getFileType(name);
+                string cur_data_type = getFileType(type);
 
                 int64_t compare = 0;
                 CountSortMethod[i](arr, n, compare);
+                
                 cout << sort_names[i] << ","
                     << cur_data_type << ","
-                    << getDataRange(range) << ","
+                    << range << ","
                     << sort_time << ","
                     << compare << endl;
             }
@@ -143,66 +132,3 @@ void Experiment()
         }
     }
 }
-
-
-
-void customExperiment()
-{
-    freopen("reversed.csv", "w", stdout);
-
-    cout << "sort_name" << ","
-        << "data_type" << ","
-        << "data_range" << ","
-        << "sort_time(miliseconds)" << ","
-        << "compare" << endl;
-
-    string path = "data/input";
-    // each data range
-    for (string range : data_range)
-    {
-        // each type of data
-        string name = "input_4.txt";
-        {
-            string directory = path + "/" + range + "/" + name;
-            ifstream f;
-            f.open(directory);
-
-            if (!f.is_open())
-            {
-                cout << "Sai roi lam lai di.";
-            }
-            int* arr = nullptr, n = 0;
-
-            f >> n;
-            arr = new int[n];
-            for (int i = 0; i < n; i++)
-                f >> arr[i];
-
-            // each sort type
-            for (int i = 0; i < 11; i++)
-            {
-                if (i == 0 || i == 1 || i == 8)
-                {
-                    Timer t;
-                    t.start();
-                    sortMethod[i](arr, n);
-                    auto sort_time = t.getRunTime() * 1.0 / 1000000;
-
-                    string cur_data_type = getFileType(name);
-
-                    int64_t compare = 0;
-                    CountSortMethod[i](arr, n, compare);
-                    cout << sort_names[i] << ","
-                        << cur_data_type << ","
-                        << getDataRange(range) << ","
-                        << sort_time << ","
-                        << compare << endl;
-                }
-            }
-
-            delete[] arr;
-        }
-    }
-}
-
-

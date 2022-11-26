@@ -7,9 +7,12 @@ void CountingSort(int* a, int n) {
     for (int i = 0; i < n; i++)
         if (max < a[i])
             max = a[i];
+
     int* count = new int[max + 1]{0};
+
     for (int i = 0; i < n; i++)
         count[a[i]]++;
+
     int j = 0;
     for (int i = 0; i <= max; i++) {
         for (; count[i] > 0; count[i]--) {

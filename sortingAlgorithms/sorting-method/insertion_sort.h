@@ -1,14 +1,7 @@
 #pragma once
 #include "../controller/base.h"
 
-/**
- * Insertion Sort
- * Average complexity: O(n^2)
- * Best Case: O(n)
- * Worst Case: O(n^2)
- * Space: O(1)
- * Stable
- */ 
+
 void InsertionSort(int* a, int n)
 {
 	for (int i = 1; i < n; i++) 

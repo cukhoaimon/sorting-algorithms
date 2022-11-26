@@ -1,7 +1,7 @@
 ﻿#ifndef GENERATE_DATA_H
 #define GENERATE_DATA_H
 
-#include "controller/base.h"
+#include "base.h"
 
 template <class T>
 void HoanVi(T& a, T& b)

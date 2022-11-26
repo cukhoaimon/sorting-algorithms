@@ -1,6 +1,7 @@
 #pragma once
 #include "../controller/base.h"
 
+
 void heapify(int* a, int n, int i)
 {
 	int largest = i;
@@ -18,8 +19,8 @@ void heapify(int* a, int n, int i)
 		swap(a[i], a[largest]);
 		heapify(a, n, largest);
 	}
-
 }
+
 
 void HeapSort(int* a, int n)
 {
@@ -34,6 +35,7 @@ void HeapSort(int* a, int n)
 		heapify(a, n, 0);
 	}
 }
+
 
 void _heapify(int* a, int n, int i, int64_t&comparisons)
 {
@@ -57,6 +59,7 @@ void _heapify(int* a, int n, int i, int64_t&comparisons)
 	}
 
 }
+
 
 void CompareCount_HeapSort(int* a, int n, int64_t& comparisons)
 {

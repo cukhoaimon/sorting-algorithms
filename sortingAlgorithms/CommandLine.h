@@ -32,6 +32,7 @@ void writeData(string filename, int* a, int n) {
  
 }
 
+
 void grandData(int* data, int n, char* argv)
 {
     if (strcmp(argv, "-sorted") == 0)
@@ -53,7 +54,6 @@ void grandData(int* data, int n, char* argv)
 }
 
  
-
 void command1(int argc, char* argv[])
 {
     int* data = nullptr;
@@ -159,7 +159,7 @@ void command4(int argc, char* argv[])
     RunningSort(data2, n, algo2, time2, compare2);
     
     // Show info
-    std::cout << "Running time: " << time1 << "\t|\t" << time2 << endl;
+    std::cout << "Running time: " << time1 * 1.0 / 1000000 << "\t|\t" << time2 * 1.0 / 1000000 << endl;
     std::cout << "Comparisions: " << compare1 << "\t|\t" << compare2 << endl;
 
     delete[] data;    
@@ -199,7 +199,7 @@ void command5(int argc, char* argv[])
     RunningSort(data, n, algo1, time1, compare1);
     RunningSort(data2, n, algo2, time2, compare2);
     // Show info
-    std::cout << "Running time: " << time1 << "\t|\t" << time2 << endl;
+    std::cout << "Running time: " << time1 * 1.0 / 1000000 << "\t|\t" << time2 * 1.0 / 1000000 << endl;
     std::cout << "Comparisions: " << compare1 << "\t|\t" << compare2 << endl;
     delete[] data2;
     delete[] data;

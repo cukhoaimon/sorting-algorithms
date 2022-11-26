@@ -17,6 +17,7 @@ void ShellSort(int a[], int n) {
     }
 }
 
+
 void CompareCount_ShellSort(int *a, int n, int64_t &compare) {
     for (int gap : gaps) {
         for (int i = gap; compare++, i < n; ++i) {

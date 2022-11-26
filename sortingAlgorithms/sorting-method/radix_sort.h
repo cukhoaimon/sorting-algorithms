@@ -30,6 +30,7 @@ void countingSort(int array[], int size, int place)
     delete[] count;
 }
 
+
 void RadixSort(int array[], int size)
 {
     int max = getMax(array, size);
@@ -46,6 +47,7 @@ int _getMaxCompare(int array[], int n, long long &compare)
             max = array[i];
     return max;
 }
+
 
 void _countingSortCompare(int array[], int size, int place, long long &compare)
 {

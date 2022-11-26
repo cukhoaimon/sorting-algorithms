@@ -2,8 +2,6 @@
 #define base_h
 
 #include <iostream>
-#include <vector>
-#include <queue>
 #include <chrono>
 #include <fstream>
 #include <string>
@@ -89,7 +87,7 @@ void copyArray(int* a, int n, int*& b)
 
 void showSortInfor(char* inf, int64_t time, int64_t compare)
 {
-	auto tm = time * 1.0 * pow(10, -6);
+	auto tm = time * 1.0 / 1000000;
 	if (strcmp(inf, "-both") == 0)
 	{
 		cout << "Running time: " << tm << endl;

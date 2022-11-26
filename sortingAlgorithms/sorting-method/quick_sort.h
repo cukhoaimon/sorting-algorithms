@@ -25,10 +25,12 @@ void QuickSort(int a[], int left, int right)
         QuickSort(a, i, right);
 }
 
+
 void QuickSort(int* a, int n)
 {
     QuickSort(a, 0, n - 1);
 }
+
 
 void CompareCount_QuickSort(int a[], int left, int right, int64_t &count)
 {
@@ -53,6 +55,7 @@ void CompareCount_QuickSort(int a[], int left, int right, int64_t &count)
     if (++count, i < right)
         CompareCount_QuickSort(a, i, right, count);
 }
+
 
 void CompareCount_QuickSort(int* a, int n, int64_t&count)
 {
